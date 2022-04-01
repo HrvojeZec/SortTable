@@ -1,5 +1,5 @@
 // In-memory databse
-const clubs = [
+/*const clubs = [
     { "position": 1, "image": "/images/manchCity.png", "name": "Manchester City", "played": "29", "won": "22", "drawn": "4", "lose": "3", "gd": "+50" },
     { "position": 2, "name": "Liverpool", "played": "29", "won": "21", "drawn": "6", "lose": "2", "gd": 55, "points": "69" },
     { "position": "3.", "name": "Chelsea", "played": "28", "won": "17", "drawn": "8", "lose": "3", "gd": "+38", "points": "59" },
@@ -20,4 +20,4 @@ const clubs = [
     { "position": "18.", "name": "Watford", "played": "29", "won": "6", "drawn": "4", "lose": "19", "gd": "-26", "points": "22" },
     { "position": "19.", "name": "Burnley", "played": "27", "won": "3", "drawn": "12", "lose": "12", "gd": "-16", "points": "21" },
     { "position": "20.", "name": "Norwich City", "played": "29", "won": "4", "drawn": "5", "lose": "20", "gd": "-45", "points": "17" },
-];
+];*/
