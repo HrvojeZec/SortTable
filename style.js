@@ -1,11 +1,25 @@
 // AJAX pozivi (moderni funkcija: fetch) // GET, POST, DELETE, PATCH, PUT
 // Node.js + Express.js (web framework za Node.js)
 
-//route.get()
+/*async function getData() {
+    const response = await fetch('database.js');
+    const data = await response.text();
+    console.log(response);
+    
+}
+getData();*/
+
+/*fetch('database.js')
+    .then(res => res)
+    .then(data => console.log(data));
+*/
+
+import * as clubs from './backend/database.js';
+clubs.Globalclubs;
 
 
 // Baza (Firebase)
-var clubs = [
+/*var clubs = [
     { "position": 1, "image": "../images/Manchester_City_FC.png", "name": "Manchester City", "played": 29, "won": 22, "drawn": 4, "lose": 3, "gd": 50 },
     { "position": 2, "image": "../images/Liverpool_FC.png", "name": "Liverpool", "played": 29, "won": 21, "drawn": 6, "lose": 2, "gd": 55 },
     { "position": 3, "image": "../images/Chelsea_FC.png", "name": "Chelsea", "played": 28, "won": 17, "drawn": 8, "lose": 3, "gd": 38 },
@@ -28,33 +42,41 @@ var clubs = [
     { "position": 20, "image": "../images/Norwich_City.png", "name": "Norwich City", "played": 29, "won": 4, "drawn": 5, "lose": 20, "gd": -45, },
 ];
 var sum = 0;
-clubs.forEach((a) => { sum = a.won * 3 + a.drawn; a.points = sum; });
+clubs.forEach((a) => { sum = a.won * 3 + a.drawn; a.points = sum; });*/
+
 
 $(document).ready(function () {
     $("th").on("click", function () {
         var column = $(this).data("column");
         var order = $(this).data("order");
         var text = $(this).html();
-        var points = $(this).html("points");
         text = text.substring(0, text.length - 1);
+        console.log(text);
+        $(this).html(text);
+
         //const clubsClone = clubs.slice(); // duplicirati ili klonirati array
         //const sortedClubs = []; // ...
 
         if (order == "desc") {
             $(this).data("order", "asc");
-            clubs = clubs.sort((a, b) => a[column] > b[column] ? 1 : -1);
+            clubs.Globalclubs = clubs.Globalclubs.sort((a, b) => a[column] > b[column] ? 1 : -1);
+
 
 
             text += '&#9651';
+
+
         } else {
             $(this).data("order", "desc");
-            clubs = clubs.sort((a, b) => a[column] < b[column] ? 1 : -1);
+            clubs.Globalclubs = clubs.Globalclubs.sort((a, b) => a[column] < b[column] ? 1 : -1);
             text += '&#9661';
 
         }
         $(this).html(text);
 
-        buildTable(clubs);
+        console.log(text);
+
+        buildTable(clubs.Globalclubs);
     });
 
     const buildTable = (data) => {
@@ -86,6 +108,7 @@ $(document).ready(function () {
         tableContent.innerHTML = rows.join('');
     }
 
-    buildTable(clubs);
+    buildTable(clubs.Globalclubs);
+    console.log(clubs.Globalclubs);
+
 });
-console.log(clubs);
