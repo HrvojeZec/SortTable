@@ -1,14 +1,13 @@
 // AJAX pozivi (moderni funkcija: fetch) // GET, POST, DELETE, PATCH, PUT
 // Node.js + Express.js (web framework za Node.js)
 
-/*async function getData() {
-    const response = await fetch('database.js');
-    const data = await response.text();
-    console.log(response);
-    
-}
-getData();*/
+/*function getData() {
+    fetch('database.js')
+        .then(res => res.json())
 
+}
+
+//getData();
 /*fetch('database.js')
     .then(res => res)
     .then(data => console.log(data));
@@ -17,6 +16,7 @@ getData();*/
 import * as clubs from './backend/database.js';
 clubs.Globalclubs;
 
+//cors
 
 // Baza (Firebase)
 /*var clubs = [
@@ -54,12 +54,12 @@ $(document).ready(function () {
         console.log(text);
         $(this).html(text);
 
-        //const clubsClone = clubs.slice(); // duplicirati ili klonirati array
+        var clubsClone = clubs.Globalclubs.slice(); // duplicirati ili klonirati array
         //const sortedClubs = []; // ...
 
         if (order == "desc") {
             $(this).data("order", "asc");
-            clubs.Globalclubs = clubs.Globalclubs.sort((a, b) => a[column] > b[column] ? 1 : -1);
+            clubsClone = clubsClone.sort((a, b) => a[column] > b[column] ? 1 : -1);
 
 
 
@@ -68,15 +68,16 @@ $(document).ready(function () {
 
         } else {
             $(this).data("order", "desc");
-            clubs.Globalclubs = clubs.Globalclubs.sort((a, b) => a[column] < b[column] ? 1 : -1);
+            clubsClone = clubsClone.sort((a, b) => a[column] < b[column] ? 1 : -1);
             text += '&#9661';
+
 
         }
         $(this).html(text);
 
-        console.log(text);
 
-        buildTable(clubs.Globalclubs);
+
+        buildTable(clubsClone);
     });
 
     const buildTable = (data) => {
