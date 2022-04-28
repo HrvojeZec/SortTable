@@ -1,5 +1,8 @@
 // In-memory databse
-var Globalclubs = [
+
+//import a from 'bla';
+
+const Globalclubs = [
     { "position": 1, "image": "../images/Manchester_City_FC.png", "name": "Manchester City", "played": 29, "won": 22, "drawn": 4, "lose": 3, "gd": 50 },
     { "position": 2, "image": "../images/Liverpool_FC.png", "name": "Liverpool", "played": 29, "won": 21, "drawn": 6, "lose": 2, "gd": 55 },
     { "position": 3, "image": "../images/Chelsea_FC.png", "name": "Chelsea", "played": 28, "won": 17, "drawn": 8, "lose": 3, "gd": 38 },
@@ -24,4 +27,5 @@ var Globalclubs = [
 
 var sum = 0;
 Globalclubs.forEach((a) => { sum = a.won * 3 + a.drawn; a.points = sum; });
-export { Globalclubs }
+//clubs.forEach((club) => club.points = club.won * 3 + club.drawn);
+module.exports = { Globalclubs };
